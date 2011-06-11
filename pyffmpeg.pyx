@@ -2073,6 +2073,8 @@ cdef class FFMpegReader(AFFMpegReader):
                 self.tracks[0]._set_duration(new_duration)
         except KeyError:
             pass
+        except OverflowError:
+            pass 
 
     def close(self):
         if (self.FormatCtx!=NULL):
