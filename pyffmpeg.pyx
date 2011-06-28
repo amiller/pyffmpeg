@@ -797,7 +797,7 @@ cdef class AFFMpegReader:
  #   self.prepacket=<AVPacket *>None
 #   self.packet=&self.packetbufa
 
-    def __new__(self):
+    def __cinit__(self):
         pass
 
     def dump(self):
@@ -849,7 +849,7 @@ cdef class Track:
     cdef int do_check_end
     cdef int reopen_codec_on_buffer_reset
 
-    cdef __new__(Track self):
+    def __cinit__(Track self):
         self.vr=None
         self.observer=None
         self.support_truncated=1
@@ -1084,7 +1084,7 @@ cdef class AudioPacketDecoder:
     cdef uint8_t *audio_pkt_data
     cdef int audio_pkt_size
 
-    cdef __new__(self):
+    def __cinit__(self):
         self.audio_pkt_data =<uint8_t *>NULL
         self.audio_pkt_size=0
 
@@ -1831,7 +1831,7 @@ cdef class FFMpegReader(AFFMpegReader):
     cdef int with_readahead
     cdef unsigned long long int seek_before_security_interval
 
-    def __new__(self,with_readahead=True,seek_before=4000):
+    def __cinit__(self,with_readahead=True,seek_before=4000):
         self.filename = None
         self.tracks=[]
         self.ctracks=NULL
