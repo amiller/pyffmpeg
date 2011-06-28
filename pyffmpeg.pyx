@@ -675,19 +675,12 @@ def rwbuffer_at(pos,len):
 # General includes
 ##################################################################
 
-
 try:
     import numpy
     from pyffmpeg_numpybindings import *
 except:
     numpy=None
-
-try:
-    import PIL
-    from PIL import Image
-except:
-    Image=None
-
+import Image
 
 
 
